@@ -1,10 +1,10 @@
 # Go Code Review Comments
 
-This page collects common comments made during reviews of Go code, so
-that a single detailed explanation can be referred to by shorthands.
-This is a laundry list of common mistakes, not a comprehensive style guide.
+เพจนี้เป็นการรวบรวมคำแนะนำต่างๆที่เกิดขึ้นในระหว่างการรีวิว
+ซึ่งสามารถเลือกดูตามหัวข้อได้จากลิสต์ และนี่เป็นเพียงข้อผิดพลาดที่เกิดขึ้นบ่อยๆ
+ไม่ใช่คำแนะนำฉบับสมบูรณ์
 
-You can view this as a supplement to [Effective Go](https://golang.org/doc/effective_go.html).
+คุณสามารถอ่านเพิ่มเติมได้ที่ [Effective Go](https://golang.org/doc/effective_go.html)
 
 **Please [discuss changes](https://golang.org/issue/new?title=wiki%3A+CodeReviewComments+change&body=&labels=Documentation) before editing this page**, even _minor_ ones. Many people have opinions and this is not the place for edit wars.
 
