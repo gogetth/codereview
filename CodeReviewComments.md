@@ -88,13 +88,9 @@ parent trace หรืออื่นๆ ไว้่ใช้ด้วยกั
 
 ## Copying
 
-To avoid unexpected aliasing, be careful when copying a struct from another package.
-For example, the bytes.Buffer type contains a `[]byte` slice. If you copy a `Buffer`,
-the slice in the copy may alias the array in the original, causing subsequent method
-calls to have surprising effects.
+เพื่อป้องกันการเกิด alias โดยไม่ได้ตั้งใจ จงระวังเมื่อทำการ copy ค่า struct จาก package ใดก็ตาม ตัวอย่างเช่น type bytes.Buffer จะมี `[]byte` บรรจุอยู่ข้างใน ถ้าคุณ copy `Buffer` นั้น จะทำให้เกิด alias ของ array ที่ชี้กลับไปที่ตัวเดิม
 
-In general, do not copy a value of type `T` if its methods are associated with the
-pointer type, `*T`.
+โดยปกติ เราไม่ควร copy ค่าจาก type `T` ใดๆ ถ้าเกิดว่าเมธอดของมันเกี่ยวข้องกับ ตัวแปรพอยเตอร์ `*T`
 
 ## Crypto Rand
 
