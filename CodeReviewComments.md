@@ -42,9 +42,10 @@
 
 ## Gofmt
 
-Run [gofmt](https://golang.org/cmd/gofmt/) on your code to automatically fix the majority of mechanical style issues. Almost all Go code in the wild uses `gofmt`. The rest of this document addresses non-mechanical style points.
+รันคำสั่ง [gofmt](https://golang.org/cmd/gofmt/) เพื่อให้มันแก้ไขปัญหาทางเทคนิคให้โดยอัตโนมัติ
+โค้ด go เกือบทั้งหมดที่เจอก็ใช้ `gofmt` กันทั้งนั้น ส่วนเรื่องที่มันแก้ไม่ได้ในเชิงเทคนิค จะเป็นเรื่องของสไตล์การเขียน ซึ่งก็คือเนื้อหาส่วนที่เหลือต่อจากนี้
 
-An alternative is to use [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports), a superset of `gofmt` which additionally adds (and removes) import lines as necessary.
+อีกทางเลือกก็คือการใช้ [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports) ที่เพิ่มเติมความสามารถให้เหนือไปกว่า `gofmt` ด้วยการเพิ่มหรือลบการ import ที่ใช้จริงให้ด้วย
 
 ## Comment Sentences
 
