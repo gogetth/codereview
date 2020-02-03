@@ -64,37 +64,27 @@ func Encode(w io.Writer, req *Request) { ...
 
 ## Contexts
 
-Values of the context.Context type carry security credentials,
-tracing information, deadlines, and cancellation signals across API
-and process boundaries. Go programs pass Contexts explicitly along
-the entire function call chain from incoming RPCs and HTTP requests
-to outgoing requests.
+ค่าที่อยู่ในตัวแปร context.Context มีตั้งแต่ ข้อมูลรับรองความปลอดภัย(security credentials)
+ข้อมูลการติดตาม(tracing information), การกำหนดเวลาทำงาน(deadlines)
+และสัญญาณยกเลิกการทำงาน(cancellation signals) ข้าม API และ ขอบเขตของโปรเซสออกไปได้
+โปรแกรมที่เขียนด้วย Go ส่ง Contexts ให้ฟังก์ชั่นไปตรงๆทั้งหมด ตั้งแต่ส่งมาจาก RPCs และ HTTP จนส่งออกไปภายนอก
 
-Most functions that use a Context should accept it as their first parameter:
+ส่วนมากฟังก์ชั่นที่ใช้ Context จะรับมันเข้ามาเป็นพารามิเตอร์แรก:
 
 ```
 func F(ctx context.Context, /* other arguments */) {}
 ```
 
-A function that is never request-specific may use context.Background(),
-but err on the side of passing a Context even if you think you don't need
-to. The default case is to pass a Context; only use context.Background()
-directly if you have a good reason why the alternative is a mistake.
+ฟังก์ชั่นไหนที่ไม่ได้ต้องการอะไรเป็นพิเศษอาจจะใช้ context.Backgroud() ใส่เข้าไปไว้ก่อน แม้ว่าคุณยังไม่ได้คิดจะใช้มันตอนนี้ก็ตาม กรณีทั่วไปคือแค่ใส่ Context และใช้เพียงแค่ context.Background() ถ้าคุณยังไม่เข้าใจมันดีพอ
 
-Don't add a Context member to a struct type; instead add a ctx parameter
-to each method on that type that needs to pass it along. The one exception
-is for methods whose signature must match an interface in the standard library
-or in a third party library.
+อย่าเอา Context ไปใส่ใน struct ให้ใส่เป็น parameter ลงไปในแต่ละ method แทน ยกเว้นกรณีเดียวคือ method นั้นจะถูกใช้กับ interface ในไลบรารี่มาตราฐาน หรือกับ third party ซึ่งคุณจะเพิ่มมันไม่ได้
 
-Don't create custom Context types or use interfaces other than Context in
-function signatures.
+อย่าสร้าง Context ขึ้นมาใช้เอง หรือไปใช้ interface อื่นแทน Context
 
-If you have application data to pass around, put it in a parameter,
-in the receiver, in globals, or, if it truly belongs there, in a Context value.
+ถ้าคุณมีข้อมูลที่ต้องใส่ลงไป ให้ใส่ผ่านไปทาง receiver หรือวางไว้เป็น global หรือ ใส่ไปใน Context value เลย ถ้ามันควรเป็นแบบนั้น
 
-Contexts are immutable, so it's fine to pass the same ctx to multiple
-calls that share the same deadline, cancellation signal, credentials,
-parent trace, etc.
+Contexts ไม่สามารถเปลี่ยนแปลงค่าได้ เพราะฉะนั้น ไม่มีปัญหาถ้าจะส่ง ctx ตัวเดียวกัน ลงไปในการเรียกครั้งอื่นๆด้วย เพื่อจะได้แชร์ dealine, cancellation signal, credentials,
+parent trace หรืออื่นๆ ไว้่ใช้ด้วยกัน
 
 ## Copying
 
