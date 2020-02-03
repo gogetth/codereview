@@ -49,7 +49,8 @@
 
 ## Comment Sentences
 
-See https://golang.org/doc/effective_go.html#commentary.  Comments documenting declarations should be full sentences, even if that seems a little redundant.  This approach makes them format well when extracted into godoc documentation.  Comments should begin with the name of the thing being described and end in a period:
+อ่านที่ https://golang.org/doc/effective_go.html#commentary การคอมเม้นท์เพื่อสร้างเอกสาร
+ควรเขียนให้เต็มประโยค แม้ว่ามันอาจจะดูซ้ำซากไปหน่อย แต่การทำสิ่งนี้จะช่วยให้เอกสารที่ออกมาดูสวยงาม ซึ่งมันควรเริ่มต้นประโยคด้วยชื่อ ของสิ่งที่ต้องการอธิบาย และจบให้ได้ในประโยค
 
 ```go
 // Request represents a request to run a command.
