@@ -60,7 +60,7 @@ type Request struct { ...
 func Encode(w io.Writer, req *Request) { ...
 ```
 
-and so on.
+แบบนี้เป็นต้น
 
 ## Contexts
 
